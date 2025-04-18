@@ -34,6 +34,8 @@ import { BrowserRouter as Router } from "react-router-dom";
 reportWebVitals();
 
 
+
+
 /*Reconciliation bu React’ning ichki 
 mexanizmi bo‘lib, u Virtual DOM orqali 
 yangilanishlar aniqlanib, real DOM’ga faqat 
