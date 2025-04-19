@@ -14,7 +14,7 @@ import { BrowserRouter as Router } from "react-router-dom";
   const root = ReactDOM.createRoot( 
   // react dommni
     document.getElementById('root') as HTMLElement 
-    // virtual dom bilan bogash
+    // virtual dom bilan boglash
   );
   
   root.render(
