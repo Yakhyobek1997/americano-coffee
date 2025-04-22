@@ -36,11 +36,21 @@ reportWebVitals();
 
 
 
-/*Reconciliation bu React’ning ichki 
-mexanizmi bo‘lib, u Virtual DOM orqali 
-yangilanishlar aniqlanib, real DOM’ga faqat 
-kerakli o‘zgarishlarni tezroq ishlatishni
-ta’minlaydi.*/
+/*Reconciliation bu 
+
+
+React’ning ichki 
+mexanizmi bo‘lib, 
+u Virtual 
+DOM orqali 
+yangilanishlar aniqlanib, 
+real DOM’ga faqat 
+kerakli o‘zgarishlarni
+ tezroq ishlatishni
+ta’minlaydi.
+
+
+*/
 
 // Declorative =
 // 
