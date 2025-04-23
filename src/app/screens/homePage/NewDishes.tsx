@@ -21,7 +21,7 @@ export default function NewDishes() {
       <Container>
         <Stack className="main">
           <Box className="category-title">Fresh Menu</Box>
-          <Stack className="cards-frame">
+            <Stack className="cards-frame">
             <CssVarsProvider>
               {newDishes.length !== 0 ? (
                 newDishes.map((ele, index) => (
