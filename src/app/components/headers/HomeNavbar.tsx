@@ -2,8 +2,11 @@ import { Box, Button, Container, Stack } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import  Basket from "./Basket"
 
+
+
 export default function HomeNavbar() {
   const authMember = null;
+
 
   return (
     <div className="home-navbar">
@@ -31,7 +34,7 @@ export default function HomeNavbar() {
             </Box>
 
             <Box className={"hover-line"}>
-              <NavLink to="/">Products</NavLink>
+              <NavLink to="/products">Products</NavLink>
             </Box>
             {authMember ? (
               <Box className={"hover-line"}>

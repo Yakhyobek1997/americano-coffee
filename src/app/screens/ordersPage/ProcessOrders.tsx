@@ -35,15 +35,15 @@ interface ProcessOrdersProps {
                           <img
                             src="/icons/pause.svg"
                             alt="pause"
-                            style={{ marginLeft: "15px" }}
+                            style={{ marginLeft: "20px" }}
                           />
-                          <p style={{ marginLeft: "15px" }}>$22</p>
+                          <p>$100</p>
                         </Box>
       
                         <Box className="data-compl" mt={2}>
                           <p>{moment().format("YY-MM-DD HH:mm")}</p>
                           <Button variant="contained" className="verify-button">
-                            Verify to Fulfil
+                            Verify 
                           </Button>
                         </Box>
                       </Box>
@@ -52,7 +52,7 @@ interface ProcessOrdersProps {
                 </Box>
               ))}
       
-              {showEmpty && (
+              {true && (
                 <Box
                   display="flex"
                   flexDirection="row"
@@ -60,7 +60,7 @@ interface ProcessOrdersProps {
                   mt={4}
                 >
                   <img
-                    src="/icons/noimage-list.svg"
+                    src={"/icons/noimage-list.svg"}
                     alt="no orders"
                     style={{ width: 300, height: 300 }}
                   />

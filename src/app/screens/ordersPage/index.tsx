@@ -7,7 +7,9 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import PausedOrders from "./PausedOrders";
 import ProcessOrders from "./ProcessOrders";
 import FinishedOrders from "./FinishedOrders";
+import { useGlobals } from "../../../hooks/useGlobals"
 import "../../../css/order.css";
+
 
 export default function OrdersPage() {
     const [value, setValue] = useState("1")
@@ -91,7 +93,7 @@ return (
             <input
               type={"text"}
               name={"cardNumber"}
-              placeholder={"Card number : **** 4090 2002 7495"}
+              placeholder={"Card number : **** 1234 4567 8910"}
               className={"card-input"}
             />
             <div
@@ -133,7 +135,3 @@ return (
   );
 
 }
-function useGlobals(): { authMember: any; } {
-    throw new Error("Function not implemented.");
-}
-

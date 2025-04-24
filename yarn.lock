@@ -2001,16 +2001,17 @@
     clsx "^2.1.0"
     prop-types "^15.8.1"
 
-"@mui/lab@^7.0.0-beta.11":
-  version "7.0.0-beta.11"
-  resolved "https://registry.yarnpkg.com/@mui/lab/-/lab-7.0.0-beta.11.tgz#e3731d60f1e156368cd9be779fc730a27ec8f6dc"
-  integrity sha512-VJDEUgiRsjo8V2xDvBEE9Cfs1cSlwzp9UFmD3KzIg6emFMqz9BfYh+9cFI4iQWaoz3Agm3q6bVKlhlX6xw6sVQ==
+"@mui/lab@^5.0.0-alpha.86":
+  version "5.0.0-alpha.176"
+  resolved "https://registry.yarnpkg.com/@mui/lab/-/lab-5.0.0-alpha.176.tgz#4e6101c8224d896d66588b08b9b7883408a0ecc3"
+  integrity sha512-DcZt1BAz4CDMUFGUvKqRh6W0sehmPj5luVHPx4vzSNnXj8xFvOdHwvNZ0bzNXy/Ol+81bkxcHQoIG2VOJuLnbw==
   dependencies:
-    "@babel/runtime" "^7.27.0"
-    "@mui/system" "^7.0.2"
-    "@mui/types" "^7.4.1"
-    "@mui/utils" "^7.0.2"
-    clsx "^2.1.1"
+    "@babel/runtime" "^7.23.9"
+    "@mui/base" "5.0.0-beta.40-1"
+    "@mui/system" "^5.17.1"
+    "@mui/types" "~7.2.15"
+    "@mui/utils" "^5.17.1"
+    clsx "^2.1.0"
     prop-types "^15.8.1"
 
 "@mui/material@^7.0.2":
@@ -7352,7 +7353,7 @@ mkdirp@~0.5.1:
   dependencies:
     minimist "^1.2.6"
 
-moment@^2.30.1:
+moment@^2.29.4:
   version "2.30.1"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.30.1.tgz#f8c91c07b7a786e30c59926df530b4eac96974ae"
   integrity sha512-uEmtNhbDOrWPFS+hdjFCBfy9f2YoyzRpwcl+DqpC6taX21FzsTLQVbMV/W7PzNSX6x/bhC1zA3c2UQ5NzH6how==
