@@ -19,7 +19,6 @@ export default function UserPage() {
               </Box>
             </Box>
           </Stack>
-
           <Stack className={"my-page-right"}>
             <Box className={"order-info-box"}>
               <Box
@@ -36,7 +35,7 @@ export default function UserPage() {
                     <img src={"/icons/user-badge.svg"} />
                   </div>
                 </div>
-                <span className={"order-user-name"}>Martin</span>
+                <span className={"order-user-name"}>Harry</span>
                 <span className={"order-user-prof"}>User</span>
                 <span className={"order-user-prof"}>No address</span>
               </Box>

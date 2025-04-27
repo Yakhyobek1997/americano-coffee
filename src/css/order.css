@@ -190,9 +190,9 @@
 	height: auto;
 }
 
-/* .order-page .css-19kzrtu {
+.order-page .css-19kzrtu {
 	padding-top: 24px;
-} */
+}
 
 .order-page .order-main-content .order-main-box {
 	position: relative;
@@ -228,9 +228,9 @@
 
 .order-page .order-box-scroll .orders-name-price {
 	position: relative;
-	height: 47px;
+	height: 48px;
 	margin-top: 5px;
-	margin-left: 50px;
+	margin-left: 20px;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -238,8 +238,8 @@
 
 .order-page .order-box-scroll .orders-name-price .order-dish-img {
 	position: relative;
-	width: 50px;
-	height: 47px;
+	width: 40px;
+	height: 40px;
 	border-radius: 29px;
 	background-size: cover;
 }
@@ -261,7 +261,7 @@
 	position: relative;
 	max-width: 170px;
 	height: 100%;
-	margin-left: 150px;
+	margin-left: 100px;
 	display: flex;
 	flex-direction: row;
 	align-items: center;

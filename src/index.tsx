@@ -16,7 +16,7 @@ import "./css/index.css";
     // virtual dom bilan boglash
   );
   
-  root.render(
+  root.render( // render method
     // Pasdan virtual dom
     <React.StrictMode>
       <Provider store={store}>
