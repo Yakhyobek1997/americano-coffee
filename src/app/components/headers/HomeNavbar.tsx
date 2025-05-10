@@ -15,7 +15,7 @@ export default function HomeNavbar() {
       console.log("componentWillUnmount");
     };
   }, [value]);
-  // Handlers
+  // HANDLERS
   const buttonHandler = () => {
     setValue(!value);
   };
