@@ -16,14 +16,16 @@ import "./css/index.css";
     // virtual dom bilan boglash
   );
   
+// GI :   REDUX, MUI, ROUTER, CONTEXT, SOCKETIO
+
   root.render( // render method
     // Pasdan virtual dom
     <React.StrictMode>
-      <Provider store={store}>
-        <ThemeProvider theme={theme}>
+      <Provider store={store}> {/* Props = store={store}*/}
+        <ThemeProvider theme={theme}>   {/* Props = theme={theme}*/}
           <CssBaseline />
           <Router>
-            <App />
+            <App /> {/* Argument */}
           </Router>
         </ThemeProvider>
       </Provider>
@@ -38,14 +40,13 @@ reportWebVitals();
 /*Reconciliation bu 
 
 
-React’ning ichki 
-mexanizmi bo‘lib, 
+React’ning
 u Virtual 
 DOM orqali 
 yangilanishlar aniqlanib, 
 real DOM’ga faqat 
 kerakli o‘zgarishlarni
- tezroq ishlatishni
+ishlatishni
 ta’minlaydi.
 
 

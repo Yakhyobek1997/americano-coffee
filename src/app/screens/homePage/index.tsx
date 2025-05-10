@@ -7,8 +7,8 @@ import ActiveUsers from "./ActiveUsers";
 import Events from "./Events";
 import "../../../css/home.css"
 
-export default function HomePage() {
-  return (
+export default function HomePage() { // Screeen compni ichidan
+  return ( // sectional compoentni tashkillashtrvommiz
     <div className={"homepage"}>
     <Statistics/>
     <PopularDishes/>

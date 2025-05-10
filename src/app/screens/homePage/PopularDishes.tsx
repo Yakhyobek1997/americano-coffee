@@ -21,6 +21,7 @@ export default function PopularDishes() {
   return (
     <div className="popular-dishes-frame">
     <Container>
+      {/* himoya uchun */}
       <Stack className="popular-section">
         <Box className="category-title">Popular Dishes</Box>
         <Stack className="cards-frame">

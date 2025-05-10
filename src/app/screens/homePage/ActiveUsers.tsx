@@ -5,6 +5,7 @@ import { CssVarsProvider, Typography } from "@mui/joy";
 import CardOverflow from "@mui/joy/CardOverflow";
 import AspectRatio from "@mui/joy/AspectRatio";
 
+// 
 const activeUsers = [
     { memberNick: "Yahyo", memberImage: "/img/yahyo.webp" },
     { memberNick: "Harry", memberImage: "/img/justin.webp" },
