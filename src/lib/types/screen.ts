@@ -8,7 +8,7 @@ export interface AppRootState {
 
 export interface HomePageState {
   popularDishes: Product[];
-  newDished: Product[];
+  newDishes: Product[];
   topUsers: Member[];
 }
 
