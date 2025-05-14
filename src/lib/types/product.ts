@@ -2,6 +2,8 @@ import { ProductCollection, ProductSize, ProductStatus } from "../enums/product.
 
 
 export interface Product {
+  id: React.Key | null | undefined;
+    imagePath: string | undefined;
     _id: string;
     productStatus: ProductStatus;
     productCollection: ProductCollection;
