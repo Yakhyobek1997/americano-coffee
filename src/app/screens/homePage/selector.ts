@@ -5,15 +5,15 @@ const selectHomePage = (state: AppRootState) => state.homePage;
 
 export const retrievePopularDishes = createSelector(
   selectHomePage,
-  (homePage) => homePage.popularDishes
+  (HomePage) => HomePage.popularDishes
 );
 
 export const retrieveNewDishes = createSelector(
   selectHomePage,
-  (homePage) => homePage.newDishes
+  (HomePage) => HomePage.newDishes
 );
 
 export const retrieveTopUsers = createSelector(
   selectHomePage,
-  (homePage) => homePage.topUsers
+  (HomePage) => HomePage.topUsers
 );

@@ -3,6 +3,7 @@ import { Route, Switch, useRouteMatch } from "react-router-dom"
 import ChosenProduct from "./ChosenProduct";
 import Products  from "./Products";
 import "../../../css/products.css"
+import { CartItem } from "../../../lib/types/search";
 
 export default function ProductsPage() {
     const products = useRouteMatch()
@@ -17,7 +18,9 @@ export default function ProductsPage() {
                  <ChosenProduct />
                 </Route>
                 <Route path={`${products.path}`}>
-                    <Products />
+                    <Products onAdd={function (item: CartItem): void {
+                        throw new Error("Function not implemented.");
+                    } } />
                 </Route>
             </Switch>
         </div>
