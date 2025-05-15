@@ -1,19 +1,20 @@
 import { MemberStatus, MemberType } from "../enums/member.enum";
 
 export interface Member {
-    _id: string; // ObjectId
+    _id: string;
     memberType: MemberType;
-    memberStatus?: MemberStatus;
+    memberStatus: MemberStatus;
     memberNick: string;
     memberPhone: string;
     memberPassword?: string;
     memberAddress?: string;
     memberDesc?: string;
-    memberImage: string;
-    memberPoints?: number;
-    createdAt?: string;
-    updatedAt?: string;
+    memberImage?: string;
+    memberPoints: number;
+    createdAt: Date;
+    updatedAt: Date;
   }
+  
 
 
 

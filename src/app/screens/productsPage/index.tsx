@@ -5,24 +5,26 @@ import Products  from "./Products";
 import "../../../css/products.css"
 import { CartItem } from "../../../lib/types/search";
 
-export default function ProductsPage() {
-    const products = useRouteMatch()
-    console.log("products",products)
-
-
-
-    return(
-        <div className="products-page">
-            <Switch>
-                <Route path={`${products.path}/:productId`}>
-                 <ChosenProduct />
-                </Route>
-                <Route path={`${products.path}`}>
-                    <Products onAdd={function (item: CartItem): void {
-                        throw new Error("Function not implemented.");
-                    } } />
-                </Route>
-            </Switch>
-        </div>
-    )
-}
+interface ProductsPageProps {
+    onAdd: (item: CartItem) => void;
+  }
+  
+  export default function ProductsPage(props: ProductsPageProps) {
+    const { onAdd } = props;
+    const products = useRouteMatch();
+    console.log("products:", products);
+  
+    return (
+      <div className={"products-page"}>
+        <Switch>
+          <Route path={`${products.path}/:productId`}>
+            <ChosenProduct onAdd={onAdd} />
+          </Route>
+          <Route path={`${products.path}`}>
+            <Products onAdd={onAdd} />
+          </Route>
+        </Switch>
+      </div>
+    );
+  }
+  

@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom/client"; 
-// Asosiy qismi// Reconsilation
 import { Provider } from "react-redux";
 import { store } from "./app/store";
 import App from "./app/App";
@@ -9,28 +8,25 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './app/MaterialTheme';
 import { BrowserRouter as Router } from "react-router-dom";
+import { GlobalsProvider } from "./hooks/GlobalsProvider"; // ✅ Yangi qo‘shiladi
 import "./css/index.css";
-  const root = ReactDOM.createRoot( 
-  // react dommni
-    document.getElementById('root') as HTMLElement 
-    // virtual dom bilan boglash
-  );
-  
-// GI :   REDUX, MUI, ROUTER, CONTEXT, SOCKETIO
 
-  root.render( // render method
-    // Pasdan virtual dom
-    <React.StrictMode>
-      <Provider store={store}> {/* Props = store={store}*/}
-        <ThemeProvider theme={theme}>   {/* Props = theme={theme}*/}
-          <CssBaseline />
-          <Router>
-            <App /> {/* Argument */}
-          </Router>
-        </ThemeProvider>
-      </Provider>
-    </React.StrictMode>
-  );
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
+
+root.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Router>
+          <GlobalsProvider> {/* ✅ Bu yerga qo‘shiladi */}
+            <App />
+          </GlobalsProvider>
+        </Router>
+      </ThemeProvider>
+    </Provider>
+  </React.StrictMode>
+);
 
 reportWebVitals();
 
