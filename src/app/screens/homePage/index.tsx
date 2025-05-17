@@ -17,7 +17,7 @@ import "../../../css/home.css";
 
 /** REDUX SLICE & SELECTOR */
 const actionDispatch = (dispatch: Dispatch) => ({
-  setPopularDishes: (data: Product[]) => dispatch(setPopularDishes(data)),
+  setPopularDishes: (data: Product[]) => dispatch(setPopularDishes(data)), // setPopularDishes action
   setNewDishes: (data: Product[]) => dispatch(setNewDishes(data)),
   setTopUsers: (data: Member[]) => dispatch(setTopUsers(data)),
 });
@@ -27,7 +27,7 @@ export default function HomePage() {
     useDispatch()
   );
 
-  useEffect(() => {
+  useEffect(() => { // BACKEND DATA FETCH = []
     const product = new ProductService();
     product
       .getProducts({
