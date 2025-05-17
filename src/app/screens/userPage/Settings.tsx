@@ -37,7 +37,7 @@ export function Settings() {
             className={"spec-input mb-phone"}
             type="text"
             placeholder={"no phone"}
-            value={"821024694424"}
+            value={"821021532309"}
             name="memberPhone"
           />
         </div>
