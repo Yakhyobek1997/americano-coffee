@@ -19,6 +19,7 @@ export interface Member {
 
 
 export interface MemberInput {
+    // _id: string;
     memberType?: MemberType
     memberStatus?: MemberStatus
     memberNick: string

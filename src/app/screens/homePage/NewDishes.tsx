@@ -35,10 +35,12 @@ export default function NewDishes() {
                   const imagePath = `${serverApi}/${product.productImages?.[0]}`;
                   const sizeVolume =
                     product.productCollection === ProductCollection.DRINK
-                      ? product.productVolume + "liter"
-                      : product.productSize + "size";
+                      ? product.productVolume + " liter"
+                      : product.productSize + " size";
+
+                  // Fixed: Use product._id as key (not product.id)
                   return (
-                    <Card key={product.id} variant="outlined" className="card">
+                    <Card key={product._id} variant="outlined" className="card">
                       <CardOverflow>
                         <div className="product-sale">Normal size</div>
                         <AspectRatio ratio="1">
@@ -81,3 +83,4 @@ export default function NewDishes() {
     </div>
   );
 }
+

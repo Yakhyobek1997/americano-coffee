@@ -1,8 +1,10 @@
 import { Member } from "./member";
+import { Order } from "./order";
 import { Product } from "./product";
 
 /** REACT APP STATE **/
-export interface AppRootState { // AppRootStat object va 2 ta proporty bor
+export interface AppRootState {
+  ordersPage: any; // AppRootStat object va 2 ta proporty bor
   productsPage: any; // 1) productsPage va turi any
   homePage: HomePageState; // 2) homePage turi homePage , ovqatlar yoki top userlar bo‘lishi 
 }
@@ -24,6 +26,13 @@ export interface ProductsPageState {
 
 
 /** ORDERS **/
+
+export interface OrdersPageState {
+  pausedOrders: Order[];
+  processOrders: Order[];
+  finishedOrders: Order[];
+}
+
 
 
 /*

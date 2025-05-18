@@ -1,4 +1,4 @@
-import { useState, SyntheticEvent } from "react";
+import { useState, SyntheticEvent, useEffect } from "react";
 import { Container, Stack, Box } from "@mui/material";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
@@ -7,18 +7,64 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import PausedOrders from "./PausedOrders";
 import ProcessOrders from "./ProcessOrders";
 import FinishedOrders from "./FinishedOrders";
-import { useGlobals } from "../../../hooks/useGlobals"
+import { useDispatch } from "react-redux";
+import { Dispatch } from "@reduxjs/toolkit";
+import { setPausedOrders, setProcessOrders, setFinishedOrders } from "./slice";
+import { Order, OrderInquiry } from "../../../lib/types/order";
+import { OrderStatus } from "../../../lib/enums/order.enum";
+import OrderService from "../../services/OrderService";
+import { useGlobals } from "../../../hooks/useGlobals";
+import { useHistory } from "react-router-dom";
 import "../../../css/order.css";
+import { serverApi } from "../../../lib/config";
+import { MemberType } from "../../../lib/enums/member.enum";
 
+/** REDUX SLICE & SELECTOR */
+const actionDispatch = (dispatch: Dispatch) => ({
+  setPausedOrders: (data: Order[]) => dispatch(setPausedOrders(data)),
+  setProcessOrders: (data: Order[]) => dispatch(setProcessOrders(data)),
+  setFinishedOrders: (data: Order[]) => dispatch(setFinishedOrders(data)),
+});
 
 export default function OrdersPage() {
-    const [value, setValue] = useState("1")
-    const { authMember } = useGlobals();
+  const { setPausedOrders, setProcessOrders, setFinishedOrders } =
+    actionDispatch(useDispatch());
+  const { orderBuilder, authMember } = useGlobals();
+  const history = useHistory();
+  const [value, setValue] = useState("1");
+  const [orderInquiry, setOrderInquiry] = useState<OrderInquiry>({
+    page: 1,
+    limit: 5,
+    orderStatus: OrderStatus.PAUSE,
+  });
 
-    const handleChange = (e: SyntheticEvent, newValue: string) => {
-        setValue(newValue)
-    }
-return (
+  useEffect(() => {
+    const order = new OrderService();
+
+    order
+      .getMyOrders({ ...orderInquiry, orderStatus: OrderStatus.PAUSE })
+      .then((data) => setPausedOrders(data))
+      .catch((err) => console.log(err));
+
+    order
+      .getMyOrders({ ...orderInquiry, orderStatus: OrderStatus.PROCESS })
+      .then((data) => setProcessOrders(data))
+      .catch((err) => console.log(err));
+
+    order
+      .getMyOrders({ ...orderInquiry, orderStatus: OrderStatus.FINISH })
+      .then((data) => setFinishedOrders(data))
+      .catch((err) => console.log(err));
+  }, [orderInquiry, orderBuilder]);
+
+  /** HANDLERS **/
+
+  const handleChange = (e: SyntheticEvent, newValue: string) => {
+    setValue(newValue);
+  };
+
+  if (!authMember) history.push("/");
+  return (
     <div className={"order-page"}>
       <Container className="order-container">
         <Stack className={"order-left"}>
@@ -52,7 +98,7 @@ return (
                 <img
                   src={
                     authMember?.memberImage
-                      ? `${authMember.memberImage}`
+                      ? `${serverApi}/${authMember.memberImage}`
                       : "/icons/default-user.svg"
                   }
                   className={"order-user-avatar"}
@@ -60,7 +106,7 @@ return (
                 <div className={"order-user-icon-box"}>
                   <img
                     src={
-                      authMember?.memberType === "RESTAURANT"
+                      authMember?.memberType === MemberType.RESTAURANT
                         ? "/icons/restaurant.svg"
                         : "/icons/user-badge.svg"
                     }
@@ -93,7 +139,7 @@ return (
             <input
               type={"text"}
               name={"cardNumber"}
-              placeholder={"Card number : **** 1234 4567 8910"}
+              placeholder={"Card number : **** 4090 2002 7495"}
               className={"card-input"}
             />
             <div
@@ -133,5 +179,4 @@ return (
       </Container>
     </div>
   );
-
 }
