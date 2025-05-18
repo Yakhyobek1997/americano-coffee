@@ -19,7 +19,7 @@ class OrderService {
     try {
       const orderItems: OrderItemInput[] = input.map((cartItem: CartItem) => {
         return {
-          itemQuantity: cartItem.quantity,
+          itemQuantity: cartItem.quantity, 
           itemPrice: cartItem.price,
           productId: cartItem._id,
         };

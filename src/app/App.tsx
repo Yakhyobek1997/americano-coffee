@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Route, Switch, useLocation } from "react-router-dom";
 import HomePage from "./screens/homePage";
 import ProductsPage from "./screens/productsPage";
@@ -26,15 +26,30 @@ function App() {
   const [loginOpen, setLoginOpen] = useState<boolean>(false);
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
 
-  /** HANDLERS **/
+  /**LOGIN HOLATINI uchun**/
+  useEffect(() => {
+    const memberService = new MemberService();
 
+    memberService
+      .getRestaurant()
+      .then((member) => {
+        setAuthMember(member); // agar cookie bor bolsa foydalanuvchini tiklaydi
+      })
+      .catch(() => {
+        setAuthMember(null); // aks holda loginni bekor qiladi
+      });
+  }, []);
+
+  /** HANDLERS **/
   const handleSignupClose = () => setSignupOpen(false);
   const handleLoginClose = () => setLoginOpen(false);
 
   const handleLogoutClick = (e: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(e.currentTarget);
   };
+
   const handleCloseLogout = () => setAnchorEl(null);
+
   const handleLogoutRequest = async () => {
     try {
       const member = new MemberService();
@@ -79,6 +94,7 @@ function App() {
           handleLogoutRequest={handleLogoutRequest}
         />
       )}
+
       <Switch>
         <Route path="/products">
           <ProductsPage onAdd={onAdd} />
@@ -96,6 +112,7 @@ function App() {
           <HomePage />
         </Route>
       </Switch>
+
       <Footer />
 
       <AuthenticationModal

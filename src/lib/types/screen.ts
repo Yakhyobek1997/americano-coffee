@@ -2,9 +2,9 @@ import { Member } from "./member";
 import { Product } from "./product";
 
 /** REACT APP STATE **/
-export interface AppRootState {
-  productsPage: any;
-  homePage: HomePageState;
+export interface AppRootState { // AppRootStat object va 2 ta proporty bor
+  productsPage: any; // 1) productsPage va turi any
+  homePage: HomePageState; // 2) homePage turi homePage , ovqatlar yoki top userlar bo‘lishi 
 }
 
 export interface HomePageState {
@@ -24,3 +24,8 @@ export interface ProductsPageState {
 
 
 /** ORDERS **/
+
+
+/*
+Interface - suz shu malumotni yuborasi boshqasini emas
+*/

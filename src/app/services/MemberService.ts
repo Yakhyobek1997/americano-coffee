@@ -2,17 +2,22 @@ import axios from "axios";
 import { serverApi } from "../../lib/config";
 import { LoginInput, Member, MemberInput } from "../../lib/types/member";
 
-class MemberService {
+class MemberService { // MemberService degan oject clasi bor
   private readonly path: string;
 
-  constructor() {
-    this.path = serverApi;
+  constructor() { // constructor bu special method
+    this.path = serverApi; // pathga serverApi degan qiymatni
   }
 
   public async signup(signupInput: MemberInput): Promise<Member> {
+  // signup methodi uni 1 arg ovotti signupInput, bu MemberInput tipida.
+  // Promise<Member>, yani bu async function va backenddan Member object qaytaradi.
     try {
       const url = this.path + "/member/signup";
-      const response = await axios.post(url, signupInput, {
+  // This - pathga API engpoint /member/signup qo'shib, API manzil yasab olinyapti.    
+  const response = await axios.post(url, signupInput, {
+    // Bu yerda axios.post() degan HTTP so‘rov yuboruvchi method ishlatilmoqda.
+    // U 3 ta argument qabul qiladi
         withCredentials: true,
       });
       return response.data;
