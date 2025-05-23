@@ -12,7 +12,7 @@ const initialState: HomePageState = { // initialState -  bosh qiymat
 const homePageSlice = createSlice({ 
   name: "homePage",
   initialState, // Reduxni boshlang'ich qiymati
-  reducers: { // Reducers -  bu state’ni yangilovchi funksiyalar (action + reducer)
+  reducers: { // Reducers -  bu state'ni yangilovchi funksiyalar (action + reducer)
     setPopularDishes: (state, action) => { // actionga kirib kegan datani
       state.popularDishes = action.payload; // action.payload dan oladi,
       // action.payload orqali kelgan yangi mashhur ovqatlar massivini state.popularDishes ga yozadi.
