@@ -20,30 +20,64 @@ import { serverApi } from "../../../lib/config";
 import { MemberType } from "../../../lib/enums/member.enum";
 
 /** REDUX SLICE & SELECTOR */
+
+/* 1 */
 const actionDispatch = (dispatch: Dispatch) => ({
+// Bu yerda actionDispatch degan object kelib u argument sifatida.
+// reduxdan olingan function qabul qilmoqda.
+// va dispatch orqali 3 ta action function (yoki method) ni qaytaradi:
+// Har birining argumenti  bu data Order[] — massiv obyektlar (orderlar ro‘yxati).
+// pausedOrders nomli state propertyni data bilan yangilaydi (ya’ni data ni yozib qo‘yadi).
   setPausedOrders: (data: Order[]) => dispatch(setPausedOrders(data)),
   setProcessOrders: (data: Order[]) => dispatch(setProcessOrders(data)),
   setFinishedOrders: (data: Order[]) => dispatch(setFinishedOrders(data)),
 });
 
+
+/* 2 */
+/* Bu OrdersPage funksional componenti
+foydalanuvchining o‘z buyurtmalarini 
+(PAUSE, PROCESS, FINISH) holatiga qarab 
+Redux orqali saqlab, UI'da ko‘rsatishga xizmat qiladi.
+
+*/
 export default function OrdersPage() {
   const { setPausedOrders, setProcessOrders, setFinishedOrders } =
     actionDispatch(useDispatch());
+/* actionDispatch funksiyasi useDispatch() dan
+olingan dispatchni qabul qilib, bizga 3 ta action function
+ni tayyor holatda qaytaryapti. */ 
+
   const { orderBuilder, authMember } = useGlobals();
+// useGlobals() hook'dan global ikkita property olinmoqda
   const history = useHistory();
+// history React Router’dan. Navigatsiya uchun ishlatiladi
   const [value, setValue] = useState("1");
+// bu yerda useState hook orqali orderInquiry degan object tipidagi holat (state) yaratdik.
   const [orderInquiry, setOrderInquiry] = useState<OrderInquiry>({
-    page: 1,
-    limit: 5,
-    orderStatus: OrderStatus.PAUSE,
+    page: 1, // boshlangich qiymat
+    limit: 5, // limit 5 ta
+    orderStatus: OrderStatus.PAUSE, // holati pausa
   });
 
-  useEffect(() => {
-    const order = new OrderService();
 
-    order
+  /* 3 */
+
+  /* Bu useEffect — React komponent yuklanganda
+  bir marta ishga tushadigan kod blokidir.
+  Uning ichida biz serverdan PAUSE holatidag
+  buyurtmalarni olib, Redux Store ga yuklayapmiz.*/ 
+
+  useEffect(() => { // useEffect ishga tushganda
+    const order = new OrderService();//  OrderService dan
+    // order degan object yaratilgan
+
+    order // order object orqali getMyOrders degan method chaqirilyapti.
       .getMyOrders({ ...orderInquiry, orderStatus: OrderStatus.PAUSE })
+   // Methodga argument sifatida orderInquiry objectni all property’lari uzatilib
+   // orderStatus majburan PAUSE qilib berilyapti
       .then((data) => setPausedOrders(data))
+   // succes ishlasa kelgan datani setPausedOrders(data) orqali Redux’ga yuboradi
       .catch((err) => console.log(err));
 
     order
@@ -55,28 +89,43 @@ export default function OrdersPage() {
       .getMyOrders({ ...orderInquiry, orderStatus: OrderStatus.FINISH })
       .then((data) => setFinishedOrders(data))
       .catch((err) => console.log(err));
-  }, [orderInquiry, orderBuilder]);
+  }, [orderInquiry, orderBuilder]); 
+  // state: orderInquiry o'zgarganda avto yangilayd
 
-  /** HANDLERS **/
+
+
+  /** HANDLERS  4 **/
 
   const handleChange = (e: SyntheticEvent, newValue: string) => {
+  // handleChange degan function bor. u SyntheticEvent va newValue degan ikkita argument oladi.
+  // user tablarni change qianda ishlid, Ichida setValue(newValue) ishlaydi -
+  // bu orqali value degan state yangilanadi va UI avtomatik yangilanadi.
     setValue(newValue);
   };
 
+
+  /* 5 */ 
+
+  /* 6) Bu komponentda 3 ta buyurtma holatini ko‘rish uchun tab’lar bor. 
+  value yangilanadi va shu asosda mos komponent 
+  (PausedOrders, ProcessOrders, FinishedOrders) ekranga chiqadi.*/
   if (!authMember) history.push("/");
   return (
     <div className={"order-page"}>
       <Container className="order-container">
         <Stack className={"order-left"}>
-          <TabContext value={value}>
+          <TabContext value={value}> 
+  {/* TabContext ichida valuega qarab qaysi tab faol ekanligi aniqlanadi. */}
             <Box className={"order-nav-frame"}>
               <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
                 <Tabs
                   value={value}
                   onChange={handleChange}
+    // Foydalanuvchi tab’ni bosganda handleChange orqali           
                   aria-label="basic tabs example"
                   className={"table_list"}
                 >
+    {/* Value yangilanadi */}
                   <Tab label="PAUSED ORDERS" value={"1"} />
                   <Tab label="PROCESS ORDERS" value={"2"} />
                   <Tab label="FINISHED ORDERS" value={"3"} />
@@ -85,7 +134,7 @@ export default function OrdersPage() {
             </Box>
             <Stack className={"order-main-content"}>
               <PausedOrders setValue={setValue} />
-              <ProcessOrders setValue={setValue} />
+              <ProcessOrders setValue={setValue} /> 
               <FinishedOrders />
             </Stack>
           </TabContext>
