@@ -60,6 +60,11 @@ ni tayyor holatda qaytaryapti. */
     orderStatus: OrderStatus.PAUSE, // holati pausa
   });
 
+  /*orderBuilder bu — foydalanuvchi mahsulot tanlaganda 
+  yoki savatchani to‘ldirganda, o‘sha vaqtincha yig‘ilgan 
+  barcha ma’lumotlarni saqlab turadigan object. 
+  Uni "buyurtma qurilishi" deb tushunsak bo‘ladi. 
+  Serverga yuborishdan oldingi bosqich*/
 
   /* 3 */
 

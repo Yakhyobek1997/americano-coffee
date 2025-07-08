@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Button, Stack } from "@mui/material";
+import { Box, Button, colors, Stack } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import Badge from "@mui/material/Badge";
 import Menu from "@mui/material/Menu";
@@ -83,17 +83,15 @@ export default function Basket(props: BasketProps) {
         onClose={handleClose}
         // onClick={handleClose}
         PaperProps={{
-          elevation: 0,
           sx: {
-            overflow: "visible",
-            filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
-            mt: 1.5,
-            "& .MuiAvatar-root": {
-              width: 32,
-              height: 32,
-              ml: -0.5,
-              mr: 1,
-            },
+            backgroundColor: "#1f1f1f",
+            color: "#fefefe", // matn rangi
+            borderRadius: "16px",
+            boxShadow: "0 10px 30px rgba(82, 65, 11, 0.9)",
+            padding: "8px 12px",
+            minWidth: "360px",
+            maxHeight: "400px",
+            overflowY: "auto",
             "&:before": {
               content: '""',
               display: "block",
@@ -102,7 +100,7 @@ export default function Basket(props: BasketProps) {
               right: 14,
               width: 10,
               height: 10,
-              bgcolor: "background.paper",
+              bgcolor: "#1f1f1f", // uchli popup belgisi fonga mos
               transform: "translateY(-50%) rotate(45deg)",
               zIndex: 0,
             },
@@ -183,4 +181,3 @@ export default function Basket(props: BasketProps) {
     </Box>
   );
 }
-

@@ -4,16 +4,11 @@ import React from "react";
 export default function Advertisement() {
   return (
     <div className="ads-restaurant-frame">
-      <video
+      <img
         className="ads-video"
-        autoPlay
-        loop
-        muted
-        playsInline
-        data-video-media=""
-      >
-        <source type="video/mp4" src="video/burak-ads.mp4" />
-      </video>
+        src="img/banner2.gif"
+        alt="Advertisement"
+      />
     </div>
   );
 }

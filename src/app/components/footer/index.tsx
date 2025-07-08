@@ -20,12 +20,14 @@ export default function Footer() {
         <Stack flexDirection={"row"} sx={{ mt: "94px" }}>
           <Stack flexDirection={"column"} style={{ width: "340px" }}>
             <Box>
-              <img width={"100px"} src={"/icons/burak.svg"} />
+              <img width={"100px"} src={"/icons/americano.png"} />
             </Box>
             <Box className={"foot-desc-txt"}>
-              Focusing on the gourmet Turkish breakfast as well as the youth
-              society, CZN Burak Gurme aims to bring Turkish cuisine back. CZN
-              Burak Gurme creates an illusion with its cuisine.
+              Focusing on the essence of K-beauty and self-care,
+              Olive Young aims to redefine everyday beauty rituals.
+              More than just skincare, Olive Young brings confidence,
+              wellness, and the latest Korean trends together in one place 
+              creating a lifestyle beyond beauty.
             </Box>
             <Box className="sns-context">
               <img src={"/icons/facebook.svg"} />

@@ -95,7 +95,7 @@ export default function Products(props: ProductsProps) {
         <Stack flexDirection={"column"} alignItems={"center"}>
           <Stack className={"avatar-big-box"}>
             <Stack className={"top-text"}>
-              <p>Burak Restaurant</p>
+              <p>Cosmtetics</p>
               <Stack className={"single-search-big-box"}>
                 <input
                   type={"search"}
@@ -361,4 +361,3 @@ export default function Products(props: ProductsProps) {
     </div>
   );
 }
-
