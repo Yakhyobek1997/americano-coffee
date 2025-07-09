@@ -48,9 +48,14 @@ export default function OtherNavbar(props: OtherNavbarProps) {
     <div className="other-navbar">
       <Container className="navbar-container">
         <Stack className="menu">
-          <Box>
-            <NavLink to="/">
-              <img className="brand-logo" src="/icons/americano.png" />
+          <Box className="logo-wrapper">
+            <NavLink to="/" className="logo-link">
+              <img
+                className="brand-logo"
+                src="/icons/americano.png"
+                alt="Logo"
+              />
+              <span className="logo-text">Americano</span>
             </NavLink>
           </Box>
           <Stack className="links">
